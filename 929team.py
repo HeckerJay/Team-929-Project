@@ -42,7 +42,7 @@ for aimcat in  jobcat:
         finalcat.append(aimcat) #check the same categories dataset between two .csv
         
 #==============================================================================
-#比较新建的counts库和这个人有没有counts 库内的数据 没有推荐剩余 
+#creat a skill library from company's requirenment
 with open('stoplist.txt','r',encoding='UTF-8') as f:
     stops = f.read() # get stoplist.
 
@@ -50,7 +50,7 @@ with open('stoplist.txt','r',encoding='UTF-8') as f:
 counts={}
 with open('job_skills.csv','r',encoding='UTF-8') as csvfile:
     reader = csv.DictReader(csvfile)
-    column = [row['Minimum Qualifications'] for row in reader]#选列名
+    column = [row['Minimum Qualifications'] for row in reader] #select ideal needs 
     for line in column:
       if 'in ' in line:  
         word = re.compile(r'.*, (.*).*,') #RE compile
@@ -68,6 +68,8 @@ with open('job_skills.csv','r',encoding='UTF-8') as csvfile:
 pairs = sorted(counts, key=lambda v:counts[v], reverse=True)
 pairs = pairs[:15]#find out most 15 frequent skills
 
+#==============================================================================
+#Compare the skills between individuals' resume and company's needs. Recommand related skill to learn.
 comprow=[]
 with open('resume_dataset.csv','r',encoding='UTF-8') as csvfile:
     comp = csv.DictReader(csvfile)
