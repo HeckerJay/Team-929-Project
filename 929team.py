@@ -25,11 +25,6 @@ for key,value in list(a):
 
 #==============================================================================
 # 处理公司数据集
-with open('stoplist.txt','r',encoding='UTF-8') as f:
-    stops = f.read() # get stoplist.
-
-
-
 jobcat={}
 with open('job_skills.csv','r',encoding='UTF-8') as compaire0:
     comp0 = csv.DictReader(compaire0)
@@ -52,17 +47,24 @@ for aimcat in  jobcat:
         finalcat.append(aimcat)
         
 #==============================================================================
-#比较新建的counts库和这个人有没有counts 库内的数据 没有推荐剩余        
+#比较新建的counts库和这个人有没有counts 库内的数据 没有推荐剩余 
+with open('stoplist.txt','r',encoding='UTF-8') as f:
+    stops = f.read() # get stoplist.
+
+
 counts={}
 with open('job_skills.csv','r',encoding='UTF-8') as csvfile:
     reader = csv.DictReader(csvfile)
     column = [row['Minimum Qualifications'] for row in reader]#选列名
     for line in column:
       if 'in ' in line:  
-        word = re.compile(r'in (.*).')#目前最优的正则化语句
-        line.replace(r'or',r',')#替换
-        for wd in word.findall(line,re.S):
-    #                if wd not in stops:#use stoplist to avoid unexcepted info
+        word = re.compile(r'.*, (.*).*,')#目前最优的正则化语句
+        line=line.replace(r'in ',r', ')
+        line=line.replace(r'.',r', ')
+        line=line.replace('and ',r', ')
+        line=line.replace('or ',r', ')#替换
+        for wd in word.findall(line):
+          if wd not in stops:#use stoplist to avoid unexcepted info
             if wd in counts:
                 counts[wd] += 1
             else:
@@ -70,6 +72,7 @@ with open('job_skills.csv','r',encoding='UTF-8') as csvfile:
 pairs = sorted(counts, key=lambda v:counts[v], reverse=True)
 print(pairs[:10]) #find out most 10 frequent skills
         
+
 
         
 
