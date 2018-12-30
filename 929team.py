@@ -87,3 +87,9 @@ with open('resume_dataset.csv','r',encoding='UTF-8') as csvfile:
                 recless=re.compile(r''+check+'')
                 if recless.findall(row['Resume'])==[]:
                         recomdlesson[row['ID']]+=check+';'
+
+
+with open('recommanded_lessons.csv','w+') as recom:
+     w=csv.writer(recom)
+     for key,value in recomdlesson.items():
+         w.writerow([key,value])
