@@ -4,20 +4,20 @@
 
 
 
-##    5 Steps to implement individuals' need about further study 
+  ##    5 Steps to implement individuals' need about further study 
 
 
 
-###        1. Choose .csv document from individual and company seperately
+   ###        1. Choose .csv document from individual and company seperately
 
 
-###        2. Set related text mining algorithm (with stoplist and other RE configurations)
+   ###        2. Set related text mining algorithm (with stoplist and other RE configurations)
 
 
-###        3. Creat objective skills library from companies' csv. document
+   ###        3. Creat objective skills library from companies' csv. document
 
 
-###        4. Check the needed individuals' skill with individuals' resumes
+   ###        4. Check the needed individuals' skill with individuals' resumes
 
 
-###        5. Recommend related classes to particular individuals
+   ###        5. Recommend related classes to particular individuals
