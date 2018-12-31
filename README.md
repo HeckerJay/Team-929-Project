@@ -6,7 +6,7 @@
 ## 5 Steps to implement individuals' need about further study 
 
 
-### 1. Choose two .csv documents from individual and company seperately
+### 1. Choose .csv document from individual and company seperately
 
 ### 2. Set related text mining algorithm (with stoplist and other RE configurations)
 
