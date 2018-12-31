@@ -12,6 +12,6 @@
 
 ### 3. Creat objective skills library from companies' csv. document
 
-### 4. Check the needed individuals' skill with thier resumes
+### 4. Check the needed individuals' skill with individuals' resumes
 
 ### 5. Recommend related classes to particular individuals
